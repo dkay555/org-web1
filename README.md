@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-This starts a local development server with live reload at `http://localhost:8080`.
+This starts a local development server with live reload at `http://localhost:8081`.
 
 ### Build
 
@@ -29,6 +29,16 @@ npm run build
 ```
 
 This generates static files in the `dist/` directory.
+
+## 🎯 SEO Features (Phase 2)
+
+All pages include:
+- **Meta tags**: Title, description, robots
+- **Canonical URLs**: Proper canonical links for each page
+- **Open Graph**: Full OG tags with fallbacks
+- **Twitter Cards**: Summary large image cards
+- **Sitemap**: Auto-generated `/sitemap.xml`
+- **Structured Data**: JSON-LD for Organization, WebSite, and HowTo (where applicable)
 
 ## 📁 Project Structure
 

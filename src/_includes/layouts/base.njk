@@ -10,13 +10,17 @@
   <meta name="robots" content="{{ robots | default('index, follow') }}" />
   <link rel="canonical" href="{{ canonical | default('https://babixgo.de' + page.url) }}" />
 
-  {% if openGraph %}
   <!-- Open Graph -->
   <meta property="og:title" content="{{ openGraph.title | default(title) }}" />
   <meta property="og:description" content="{{ openGraph.description | default(description) }}" />
   <meta property="og:type" content="{{ openGraph.type | default('website') }}" />
   <meta property="og:url" content="{{ openGraph.url | default(canonical | default('https://babixgo.de' + page.url)) }}" />
-  {% endif %}
+  <meta property="og:site_name" content="babixGO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ openGraph.title | default(title) }}" />
+  <meta name="twitter:description" content="{{ openGraph.description | default(description) }}" />
 
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
