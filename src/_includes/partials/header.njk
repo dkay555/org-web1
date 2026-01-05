@@ -1,0 +1,20 @@
+<header class="site-header">
+  <h1>
+    <a href="/" style="text-decoration:none;" aria-label="Zur Startseite">
+      <span class="logo-babix">babix</span><span class="logo-go">GO</span>
+    </a>
+  </h1>
+  <div class="sub">{{ headerSubtitle | default("Downloads · Tools · Scripts") }}</div>
+
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="/#partner">Partner</a>
+    <a href="/#racers">Racers</a>
+    <a href="/#sticker">Sticker</a>
+    <a href="/anleitungen/">Anleitungen</a>
+    {% if showContactInNav %}
+    <a href="https://wa.me/4915223842897" target="_blank" rel="noopener" class="link-whatsapp">Kontakt</a>
+    {% else %}
+    <a href="/downloads/">Downloads</a>
+    {% endif %}
+  </nav>
+</header>

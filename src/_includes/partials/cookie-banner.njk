@@ -1,0 +1,48 @@
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent">
+  <div class="cookie-content">
+    <p>
+      🍪 Wir verwenden Cookies und ähnliche Technologien (Google Analytics, Facebook Pixel), 
+      um die Nutzung unserer Website zu analysieren und zu verbessern. 
+      <a href="/datenschutz/" class="cookie-link">Mehr Infos</a>
+    </p>
+    <div class="cookie-buttons">
+      <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
+        Alle akzeptieren
+      </button>
+      <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">
+        Nur notwendige
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const consent = localStorage.getItem('cookie-consent');
+  
+  if (!consent) {
+    setTimeout(() => {
+      document.getElementById('cookieConsent').classList.add('show');
+    }, 1000);
+  } else if (consent === 'accepted') {
+    loadTrackingScripts();
+  }
+})();
+
+function acceptCookies() {
+  localStorage.setItem('cookie-consent', 'accepted');
+  document.getElementById('cookieConsent').classList.remove('show');
+  loadTrackingScripts();
+}
+
+function declineCookies() {
+  localStorage.setItem('cookie-consent', 'declined');
+  document.getElementById('cookieConsent').classList.remove('show');
+}
+
+function loadTrackingScripts() {
+  // Placeholder for tracking scripts
+  // TODO: Add actual tracking IDs when ready
+}
+</script>
