@@ -1,3 +1,4 @@
+<!-- ===== HEADER ===== -->
 <header class="site-header">
   <h1>
     <a href="/" style="text-decoration:none;" aria-label="Zur Startseite">
@@ -5,16 +6,40 @@
     </a>
   </h1>
   <div class="sub">{{ headerSubtitle | default("Downloads · Tools · Scripts") }}</div>
-
-  <nav class="nav" aria-label="Hauptnavigation">
-    <a href="/#partner">Partner</a>
-    <a href="/#racers">Racers</a>
-    <a href="/#sticker">Sticker</a>
-    <a href="/anleitungen/">Anleitungen</a>
-    {% if showContactInNav %}
-    <a href="https://wa.me/4915223842897" target="_blank" rel="noopener" class="link-whatsapp">Kontakt</a>
-    {% else %}
-    <a href="/downloads/">Downloads</a>
-    {% endif %}
-  </nav>
 </header>
+
+<!-- ===== NAVIGATION ===== -->
+{% if isHomepage %}
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="nav-section">
+  <a href="#partner">Partner</a>
+  <a href="#racers">Racers</a>
+  <a href="#sticker">Sticker</a>
+  <a href="#accounts">Accounts</a>
+  <a href="#wuerfel">Würfel</a>
+  </div>
+  
+  <div class="nav-section">
+    <p>Unser neuester Beitrag:</p>
+    <a href="/anleitungen/freundschaftsbalken-fuellen/">"So füllt ihr euren Freundschaftsbalken selbst"</a>
+  </div>
+
+  <div class="nav-section">
+    <p>Bei Fragen oder Interesse schick' uns gern eine Nachricht:</p>
+    <a href="https://wa.me/4915223842897" target="_blank" rel="noopener" class="link-whatsapp">WhatsApp</a>
+    <a href="https://www.facebook.com/share/1DC2snqois/" target="_blank" rel="noopener" class="link-facebook">Facebook</a>
+  </div>
+</nav>
+{% else %}
+<nav class="nav" aria-label="Hauptnavigation">
+  <a href="/#partner">Partner</a>
+  <a href="/#racers">Racers</a>
+  <a href="/#sticker">Sticker</a>
+  <a href="/anleitungen/">Anleitungen</a>
+  {% if showContactInNav %}
+  <a href="https://wa.me/4915223842897" target="_blank" rel="noopener" class="link-whatsapp">Kontakt</a>
+  {% else %}
+  <a href="/downloads/">Downloads</a>
+  {% endif %}
+</nav>
+{% endif %}
