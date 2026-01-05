@@ -16,49 +16,35 @@
   <meta property="og:type" content="{{ openGraph.type | default('website') }}" />
   <meta property="og:url" content="{{ openGraph.url | default(canonical | default('https://babixgo.de' + page.url)) }}" />
   <meta property="og:site_name" content="babixGO" />
+  <meta property="og:image" content="{{ openGraph.image | default('https://babixgo.de/assets/img/og-default.jpg') }}" />
+  <meta property="og:image:alt" content="{{ openGraph.imageAlt | default(description) }}" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ openGraph.title | default(title) }}" />
   <meta name="twitter:description" content="{{ openGraph.description | default(description) }}" />
+  <meta name="twitter:image" content="{{ openGraph.image | default('https://babixgo.de/assets/img/og-default.jpg') }}" />
 
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 
   {% if structuredData %}
-  <!-- Structured Data -->
+  <!-- Structured Data (page-specific) -->
   {{ structuredData | safe }}
+  {% else %}
+  <!-- Structured Data (site-wide) -->
+  <script type="application/ld+json">
+{{ site.organization | dump | safe }}
+  </script>
+  <script type="application/ld+json">
+{{ site.website | dump | safe }}
+  </script>
   {% endif %}
-
-  <!-- ===== TRACKING CODE ===== -->
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '877965457871970');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=877965457871970&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9STF8SYG7N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-9STF8SYG7N');
-  </script>
 </head>
 
 <body>

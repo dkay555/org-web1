@@ -11,9 +11,13 @@ Allow: /downloads/
 Allow: /impressum/
 Allow: /datenschutz/
 
+# Allow public images and logos used for OG
+Allow: /assets/img/
+Allow: /assets/logo/
+
 # Verboten: Private/geschützte Bereiche
 Disallow: /public/
-Disallow: /assets/
+Disallow: /assets/private/
 Disallow: /*.apk$
 Disallow: /*.sh$
 
@@ -32,10 +36,12 @@ Disallow: /*.json$
 # Google-spezifische Regeln
 User-agent: Googlebot
 Allow: /
+Allow: /assets/img/
 Disallow: /public/
 
 # Google Bildersuche
 User-agent: Googlebot-Image
+Allow: /assets/img/
 Allow: /assets/icons/
 Allow: /assets/logo/
 Disallow: /public/

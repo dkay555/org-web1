@@ -15,6 +15,9 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
   
+  # Redirect root (/) to /downloads/
+  RewriteRule ^$ /downloads/ [R=301,L]
+  
   # Legacy v1 URLs → v2 Clean URLs
   RewriteRule ^impressum_page\.html$ /impressum/ [R=301,L]
   RewriteRule ^datenschutz_page\.html$ /datenschutz/ [R=301,L]
@@ -150,9 +153,8 @@ Options -Indexes
 # /public/ VERZEICHNIS
 # ==========================================
 
-# Downloads erlaubt, aber nicht indexiert
+# Downloads erlaubt, aber nicht indexiert (funktional für Shared-Hosts)
 <IfModule mod_headers.c>
-  <FilesMatch "^/public/.*\.(apk|sh)$">
-    Header set X-Robots-Tag "noindex, nofollow, nosnippet"
-  </FilesMatch>
+  SetEnvIf Request_URI "^/public/.*\.(apk|sh)$" NOINDEX_DOWNLOAD
+  Header set X-Robots-Tag "noindex, nofollow, nosnippet" env=NOINDEX_DOWNLOAD
 </IfModule>
