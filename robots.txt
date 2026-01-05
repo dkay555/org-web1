@@ -1,4 +1,85 @@
+# robots.txt für babixgo.de
+# Letzte Aktualisierung: 2026-01-04
+
+# Standardregeln für alle Bots
 User-agent: *
+
+# Erlaubt: Hauptinhalte
+Allow: /
+Allow: /anleitungen/
+Allow: /downloads/
+Allow: /impressum/
+Allow: /datenschutz/
+
+# Verboten: Private/geschützte Bereiche
+Disallow: /public/
+Disallow: /assets/
+Disallow: /*.apk$
+Disallow: /*.sh$
+
+# Verboten: Admin-Bereiche (falls vorhanden)
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /config/
+Disallow: /temp/
+Disallow: /cache/
+
+# Verboten: Duplicate Content vermeiden
+Disallow: /*?*
+Disallow: /*.php$
+Disallow: /*.json$
+
+# Google-spezifische Regeln
+User-agent: Googlebot
+Allow: /
 Disallow: /public/
 
+# Google Bildersuche
+User-agent: Googlebot-Image
+Allow: /assets/icons/
+Allow: /assets/logo/
+Disallow: /public/
+
+# Bing-spezifische Regeln
+User-agent: Bingbot
+Allow: /
+Disallow: /public/
+
+# Social Media Bots (für Link-Previews)
+User-agent: facebookexternalhit
+Allow: /
+Allow: /assets/img/og-default.jpg
+
+User-agent: Twitterbot
+Allow: /
+Allow: /assets/img/og-default.jpg
+
+User-agent: WhatsApp
+Allow: /
+Allow: /assets/img/og-default.jpg
+
+# Aggressive Bots blockieren (optional - entfernen wenn zu restriktiv)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# Schlechte Bots komplett blockieren
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap-Referenz
 Sitemap: https://babixgo.de/sitemap.xml
+
+# Crawl-delay für alle anderen Bots
+Crawl-delay: 5
